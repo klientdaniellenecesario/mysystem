@@ -1,0 +1,142 @@
+/* ===== HOME PAGE STYLES ===== */
+
+/* Main content */
+.home-content {
+    min-height: calc(100vh - 80px - 60px); /* Viewport height minus header and footer */
+    background: white;
+    padding: 60px 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    color: #022680;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 40px 20px;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+/* Call to Action Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cta-btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.cta-btn.primary {
+    background: #022680;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-btn.primary:hover {
+    background: #2055dd;
+    color: #3870ff;
+    transform: translateY(-2px);
+}
+
+.cta-btn.secondary {
+    background: #022680;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-btn.secondary:hover {
+    background: #2055dd;
+    color: #3870ff;
+    transform: translateY(-2px);
+}
+
+/* Features Section */
+.features-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.features-section h2 {
+    text-align: center;
+    color: #022680;
+    font-size: 36px;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: #022680;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: white;
+    line-height: 1.6;
+}
+
+/* Active navigation style */
+.nav-menu a.active {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 32px;
+    }
+    
+    .hero-section p {
+        font-size: 18px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}

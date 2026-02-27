@@ -1,0 +1,181 @@
+/* ===== REGISTRATION PAGE STYLES ===== */
+.registration-page {
+    background: white;  /* Dark blue - CHANGE THIS */
+    min-height: 100vh;
+    display: flex;  /* This creates side-by-side layout */
+    margin: 0;
+    padding: 0;
+}
+
+/* LEFT SIDE - Form Side */
+.form-side {
+    flex: 1;  /* Takes half the screen */
+    background: transparent;  /* No white background */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;  /* Pushes form to the right side of left half */
+    padding: 40px;
+}
+
+.register-form-wrapper {
+    width: 100%;
+    max-width: 650px;
+    background: #022680;  /* Dark blue - CHANGE THIS */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.register-form-wrapper h1 {
+    text-align: center;
+    color: white;
+    font-size: 32px;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.register-form-wrapper h2 {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+/* RIGHT SIDE - Logo Side */
+.logo-side {
+    flex: 1;  /* Takes half the screen */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;  /* Pushes logo to the left side of right half */
+    padding: 40px;
+}
+
+.registration-logo {
+    max-width: 80%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+/* Form Styles */
+.register-form {
+    width: 100%;
+}
+
+.register-form .form-group {
+    margin-bottom: 15px;
+}
+
+.register-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.register-form input,
+.register-form select,
+.register-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s;
+    background: white;
+}
+
+.register-form input:focus,
+.register-form select:focus,
+.register-form textarea:focus {
+    outline: none;
+    border-color: black;
+    box-shadow: 0 0 0 3px rgba(123, 31, 162, 0.1);
+}
+
+.register-form textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* Checkbox group styling */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Register button */
+.register-btn {
+    width: 100%;
+    padding: 12px;
+    background: #1b52df;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 15px;
+}
+
+.register-btn:hover {
+    background: #2b66fc;
+}
+
+/* Sign up link */
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: white;
+}
+
+.signup-link a {
+    color: #477afa;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Error/Success messages for registration */
+.register-error {
+    background: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+    border-left: 4px solid #c62828;
+}
+
+.register-success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+    border-left: 4px solid #2e7d32;
+}
