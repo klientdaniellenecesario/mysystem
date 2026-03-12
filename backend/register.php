@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CCS Sit-in System - Registration</title>
     <!-- Link to MAIN CSS (header, footer, login styles) -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/frontend/login.css">
     <!-- Link to REGISTRATION CSS (registration page only) -->
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="/frontend/register.css">
 </head>
-<body class="registration-page">
-    <div>
+<body class="registration-body">
+    <!-- HEADER SECTION -->
+    <header>
+        <div class="logo-area">
+            <h1>College of Computer Studies Sit-in Monitoring System</h1>
+        </div>
         <nav class="nav-menu">
-        <a href="home.php">Home</a>
-        <a href="#">Community</a>
-        <a href="#">About</a>
-        <a href="login.php">Login</a>
-        <a href="register.php">Register</a>
-</nav>
-    </div>
+            <a href="home.php">Home</a>
+            <a href="#">Community</a>
+            <a href="#">About</a>
+            <a href="login.php">Login</a>
+            <a href="register.php" class="active">Register</a>
+        </nav>
+    </header>
+
+    <!-- REGISTRATION PAGE CONTENT -->
+    <div class="registration-page">
     <!-- LEFT SIDE - Registration Form -->
     <div class="form-side">
         <div class="register-form-wrapper">
@@ -107,7 +114,8 @@
 
     <!-- RIGHT SIDE - Logo (No Container) -->
     <div class="logo-side">
-        <img src="images/logo2.png" alt="College Logo" class="registration-logo">
+        <img src="/images/logo2.png" alt="College Logo" class="registration-logo">
+    </div>
     </div>
 </body>
 </html>

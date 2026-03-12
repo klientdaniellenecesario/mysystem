@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CCS Sit-in System - Home</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="../frontend/login.css">
+    <link rel="stylesheet" href="../frontend/home.css">
 </head>
 <body>
     <!-- HEADER SECTION (same as login page) -->

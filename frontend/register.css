@@ -1,7 +1,18 @@
 /* ===== REGISTRATION PAGE STYLES ===== */
+body {
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+
+/* Hide nav bar on register page */
+body.registration-body header {
+    display: none;
+}
+
 .registration-page {
     background: white;  /* Dark blue - CHANGE THIS */
-    min-height: 100vh;
+    min-height: 100vh;  /* Full viewport height */
     display: flex;  /* This creates side-by-side layout */
     margin: 0;
     padding: 0;
@@ -9,19 +20,19 @@
 
 /* LEFT SIDE - Form Side */
 .form-side {
-    flex: 1;  /* Takes half the screen */
+    flex: 0.8;  /* Reduced further to push form to the left */
     background: transparent;  /* No white background */
     display: flex;
     align-items: center;
-    justify-content: flex-end;  /* Pushes form to the right side of left half */
-    padding: 40px;
+    justify-content: flex-start;  /* Pushes form to the left */
+    padding: 20px 15px 20px 160px;  /* Further increased left padding */
 }
 
 .register-form-wrapper {
     width: 100%;
-    max-width: 650px;
-    background: #022680;  /* Dark blue - CHANGE THIS */
-    padding: 40px;
+    max-width: 943px;
+    background: #004c98;  /* Dark blue - CHANGE THIS */
+    padding: 28px;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
@@ -29,7 +40,7 @@
 .register-form-wrapper h1 {
     text-align: center;
     color: white;
-    font-size: 32px;
+    font-size: 24px;
     margin-bottom: 5px;
     letter-spacing: 1px;
 }
@@ -37,23 +48,23 @@
 .register-form-wrapper h2 {
     text-align: center;
     color: white;
-    font-size: 30px;
-    margin-bottom: 30px;
+    font-size: 22px;
+    margin-bottom: 25px;
     font-weight: 400;
 }
 
 /* RIGHT SIDE - Logo Side */
 .logo-side {
-    flex: 1;  /* Takes half the screen */
+    flex: 1.5;  /* Increased to give more space and push form further left */
     display: flex;
     align-items: center;
     justify-content: flex-start;  /* Pushes logo to the left side of right half */
-    padding: 40px;
+    padding: 20px 20px 20px 90px;  /* Decreased to allow form to expand right */
 }
 
 .registration-logo {
-    max-width: 80%;
-    max-height: 80vh;
+    max-width: 61%;
+    max-height: 54vh;
     object-fit: contain;
 }
 
@@ -63,14 +74,14 @@
 }
 
 .register-form .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .register-form label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     color: white;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
 }
 
@@ -78,10 +89,10 @@
 .register-form select,
 .register-form textarea {
     width: 100%;
-    padding: 10px 12px;
+    padding: 8px 10px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 13px;
     transition: all 0.3s;
     background: white;
 }
@@ -96,7 +107,7 @@
 
 .register-form textarea {
     resize: vertical;
-    min-height: 60px;
+    min-height: 50px;
 }
 
 /* Checkbox group styling */
@@ -122,16 +133,16 @@
 /* Register button */
 .register-btn {
     width: 100%;
-    padding: 12px;
-    background: #1b52df;
+    padding: 10px;
+    background: #2e69ff;
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
     transition: background 0.3s;
-    margin-top: 15px;
+    margin-top: 12px;
 }
 
 .register-btn:hover {
@@ -147,7 +158,7 @@
 }
 
 .signup-link a {
-    color: #477afa;
+    color: #2e69ff;
     text-decoration: none;
     font-weight: bold;
     margin-left: 5px;
