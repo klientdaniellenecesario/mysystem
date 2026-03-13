@@ -1,0 +1,437 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;  /* Prevent horizontal scroll */
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+/* Top Navigation Bar - Fills spaces left and right */
+.top-nav {
+    background-color: #004c98;
+    padding: 0 20px;  /* Minimal padding just for content spacing */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    color: white;
+    width: 100vw;  /* Use viewport width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    border-radius: 0;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+.nav-brand {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.notification-icon {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 10px;
+    min-width: 16px;
+    text-align: center;
+}
+
+.nav-center {
+    display: flex;
+    gap: 30px;
+    flex: 2;
+    justify-content: center;
+}
+
+.nav-center a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    padding: 8px 0;
+    position: relative;
+}
+
+.nav-center a.active {
+    font-weight: bold;
+}
+
+.nav-center a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ffd700;
+    border-radius: 2px;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.nav-right a.logout {
+    text-decoration: none;
+    color: white;
+    background-color: rgba(255,255,255,0.2);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.nav-right a.logout:hover {
+    background-color: rgba(255,255,255,0.3);
+}
+
+/* Two Column Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    padding: 0 50px;  /* Add padding here instead of container */
+    max-width: 1400px;  /* Optional: keep max width for content */
+    margin: 0 auto;
+}
+
+/* Left Column */
+.left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Right Column */
+.right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Card Styles with Headers */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #004c98;
+    padding: 15px 20px;
+    border-bottom: 3px solid #ffd700;
+}
+
+.card-header h2 {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-header h2 i {
+    color: #ffd700;
+    font-size: 20px;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+/* Student Information Card with Picture Box */
+.student-info-container {
+    display: flex;
+    gap: 20px;
+}
+
+.student-picture-box {
+    width: 120px;
+    height: 140px;
+    background-color: #f8f9fa;
+    border: 2px dashed #004c98;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #004c98;
+}
+
+.student-picture-box i {
+    font-size: 50px;
+    color: #004c98;
+}
+
+.student-picture-box .picture-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #004c98;
+}
+
+.student-details {
+    flex: 1;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-row .label {
+    width: 80px;
+    font-weight: bold;
+    color: #555;
+    font-size: 14px;
+}
+
+.info-row .value {
+    flex: 1;
+    color: #333;
+    font-size: 14px;
+}
+
+.info-row .session-value {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Announcements Card */
+.announcement-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.announcement-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.announcement-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 13px;
+}
+
+.announcement-header .admin {
+    color: #004c98;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.announcement-header .admin i {
+    color: #ffd700;
+    font-size: 12px;
+}
+
+.announcement-header .date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #888;
+}
+
+.announcement-header .date i {
+    font-size: 12px;
+}
+
+.announcement-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+/* Rules Card */
+.university-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.university-header h3 {
+    font-size: 20px;
+    color: #004c98;
+    margin-bottom: 5px;
+}
+
+.university-header h4 {
+    font-size: 14px;
+    color: #666;
+    font-weight: normal;
+}
+
+.rules-title {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0 15px;
+    color: #004c98;
+    border-bottom: 2px solid #ffd700;
+    padding-bottom: 10px;
+}
+
+.rules-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.rules-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rules-meta i {
+    color: #004c98;
+}
+
+.rules-intro {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+    font-style: italic;
+}
+
+.rules-list {
+    padding-left: 25px;
+    list-style-type: decimal;
+}
+
+.rules-list li {
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Success Popup */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-box {
+    background-color: white;
+    padding: 40px 60px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.popup-box i {
+    font-size: 70px;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.popup-box .success-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.popup-box .welcome-text {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.popup-box .ok-btn {
+    background-color: #004c98;
+    color: white;
+    border: none;
+    padding: 12px 50px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.popup-box .ok-btn:hover {
+    background-color: #003a75;
+}

@@ -235,6 +235,123 @@ footer p a {
 footer p a:hover {
     text-decoration: underline;
 }
+/* Error and Success Messages */
+.error-container {
+    margin: 15px 0;
+    width: 100%;
+}
 
+.error-message {
+    padding: 12px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    animation: shake 0.5s ease-in-out;
+}
+
+.error-message i {
+    font-size: 18px;
+}
+
+.error-id {
+    background-color: #fff3f3;
+    border-left: 4px solid #ff6b6b;
+    color: #c92a2a;
+}
+
+.error-id i {
+    color: #ff6b6b;
+}
+
+.error-password {
+    background-color: #fff3f3;
+    border-left: 4px solid #ffa94d;
+    color: #c92a2a;
+}
+
+.error-password i {
+    color: #ffa94d;
+}
+
+.error-generic {
+    background-color: #fff3f3;
+    border-left: 4px solid #dc3545;
+    color: #c92a2a;
+}
+
+.error-generic i {
+    color: #dc3545;
+}
+
+.success-message {
+    background-color: #f0fff4;
+    border-left: 4px solid #51cf66;
+    color: #2b8a3e;
+    padding: 12px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.success-message i {
+    color: #51cf66;
+    font-size: 18px;
+}
+
+/* Highlight input fields with errors */
+.error-id + .form-group input,
+.error-password + .form-group input {
+    border-color: #ff6b6b;
+    background-color: #fff8f8;
+}
+
+/* Shake animation for error */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Add focus effect on the field with error */
+.error-id + .form-group input:focus,
+.error-password + .form-group input:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+    outline: none;
+}
+
+/* Optional: Add a tooltip-like indicator near the input */
+.field-error-indicator {
+    position: relative;
+}
+
+.field-error-indicator input {
+    border-color: #ff6b6b !important;
+    padding-right: 35px;
+}
+
+.field-error-indicator::after {
+    content: '!';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
 
 
