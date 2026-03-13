@@ -3,7 +3,15 @@ try {
     $pdo = new PDO('sqlite:' . __DIR__ . '/mysystem.db');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    // Create users table if it doesn't exist
+    // Check if role column exists, if not add it
+    $stmt = $pdo->query("PRAGMA table_info(users)");
+    $columns = $stmt->fetchAll(PDO::FETCH_COLUMN, 1);
+    
+    if (!in_array('role', $columns)) {
+        $pdo->exec("ALTER TABLE users ADD COLUMN role TEXT DEFAULT 'student'");
+    }
+    
+    // Create table if it doesn't exist (original structure + role)
     $pdo->exec("CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         id_number TEXT NOT NULL UNIQUE,
@@ -15,6 +23,7 @@ try {
         email TEXT NOT NULL UNIQUE,
         bsit_course INTEGER DEFAULT 0,
         address TEXT NOT NULL,
+        role TEXT DEFAULT 'student',
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )");
     
@@ -39,7 +48,7 @@ try {
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )");
     
-    // Insert sample announcement if table is empty
+    // Insert sample announcements if table is empty
     $count = $pdo->query("SELECT COUNT(*) FROM announcements")->fetchColumn();
     if ($count == 0) {
         $pdo->exec("INSERT INTO announcements (content, created_at) VALUES 
@@ -47,15 +56,28 @@ try {
             ('Welcome to CCS Sit-in System! Please read the laboratory rules carefully.', '2026-02-11 09:00:00')");
     }
     
-    // Create sample sessions for testing (optional)
-    $count_sessions = $pdo->query("SELECT COUNT(*) FROM sessions")->fetchColumn();
-    if ($count_sessions == 0) {
-        // This will only work if you have users, so it's optional
-        // $pdo->exec("INSERT INTO sessions (user_id, session_date, time_in, purpose) VALUES ...");
+    // CHECK IF ADMIN ACCOUNT EXISTS - IF NOT, CREATE IT
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE id_number = ?");
+    $stmt->execute(['admin']);
+    $adminExists = $stmt->fetchColumn();
+    
+    if (!$adminExists) {
+        // Create admin account with hashed password
+        $adminPassword = password_hash('admin', PASSWORD_BCRYPT);
+        $pdo->prepare("INSERT INTO users (id_number, last_name, first_name, password, email, course_level, address, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")
+            ->execute([
+                'admin', 
+                'Admin', 
+                'System', 
+                $adminPassword, 
+                'admin@ccs.edu', 
+                'Admin', 
+                'University of Cebu', 
+                'admin'
+            ]);
     }
     
 } catch (PDOException $e) {
-    // Log error for debugging
     error_log("Database connection failed: " . $e->getMessage());
     die("System unavailable. Please try again later.");
 }

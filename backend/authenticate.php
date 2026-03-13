@@ -11,11 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$user) {
-        // ID number not found
         header("Location: login.php?error=notfound");
         exit();
     } elseif (!password_verify($password, $user['password'])) {
-        // Wrong password
         header("Location: login.php?error=wrongpass");
         exit();
     } else {
@@ -23,10 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['id_number']  = $user['id_number'];
         $_SESSION['first_name'] = $user['first_name'];
         $_SESSION['last_name']  = $user['last_name'];
+        $_SESSION['role']       = $user['role'] ?? 'student'; // Default to student if role not set
         
         session_regenerate_id(true);
         
-        header("Location: dashboard.php");
+        // Redirect based on role
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            header("Location: admin_dashboard.php");
+        } else {
+            header("Location: dashboard.php");
+        }
         exit();
     }
 }
